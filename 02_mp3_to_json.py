@@ -10,7 +10,7 @@ for audio in audios:
     if("_" in audio):
         number = audio.split("_")[0]
         title = audio.split("_")[1][:-4]
-        print(number, title)
+        # print(number, title)
         result = model.transcribe(audio = f"audios/{audio}", 
         # result = model.transcribe(audio = f"audios/sample.mp3", 
                               language="hi",

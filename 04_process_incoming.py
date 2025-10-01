@@ -6,7 +6,6 @@ import requests
 
 
 def create_embedding(text_list):
-    # https://github.com/ollama/ollama/blob/main/docs/api.md#generate-embeddings
     r = requests.post("http://localhost:11434/api/embed", json={
         "model": "bge-m3",
         "input": text_list
@@ -33,7 +32,6 @@ df = joblib.load('embeddings.joblib')
 incoming_query = input("Ask a Question: ")
 question_embedding = create_embedding([incoming_query])[0] 
 
-# Find similarities of question_embedding with other embeddings
 # print(np.vstack(df['embedding'].values))
 # print(np.vstack(df['embedding']).shape)
 similarities = cosine_similarity(np.vstack(df['embedding']), [question_embedding]).flatten()
